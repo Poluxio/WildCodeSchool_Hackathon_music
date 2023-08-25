@@ -61,6 +61,8 @@ def main():
         else:
             st.warning("Veuillez entrer au moins un nom de joueur.")
         st.write('⚠️ Nous allons tester votre mémoire, as tu bien mémorisé ton ordre de passage ? ⚠️')
+
+
 if __name__ == "__main__":
     main()
 
@@ -100,11 +102,6 @@ if st.button('🎵 Envoie la musique 🎵 '):
     X_scaled = pd.DataFrame(X_scaled)
     X_scaled.columns = X.columns
     
-    # Ajustement de certaines colonnes pour mieux tenir compte des préférences des utilisateurs
-    # X_scaled.loc[:, liste_genre] = X_scaled.loc[:, liste_genre].apply(lambda x : x*3)
-    # X_scaled.loc[:, liste_artist] = X_scaled.loc[:, liste_artist].apply(lambda x : x*3)
-
-
     # Entraînement du modèle K-Nearest Neighbors avec 10 voisins
     model = KNeighborsClassifier(n_neighbors = 30).fit(X_scaled, y)
 
